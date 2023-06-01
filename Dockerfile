@@ -181,3 +181,7 @@ RUN echo 'alias scala="/cs launch scala"' >> /root/.bashrc
 # PATHを通す
 ARG program_path="export PATH=/:/lua-${lua_version}/src:/root/.rbenv/bin:/root/.cargo/bin/:/usr/local/go/bin:/root/.local/bin:/usr/local/julia-${julia_version}/bin/:$PATH"
 RUN echo ${program_path} >> /root/.bashrc
+
+# 作業ディレクトリを作成
+RUN cd /root/ && git clone https://github.com/geshi-prog/Study.git
+WORKDIR /root/Study
